@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>هیمالیا VMP · رول‌پلی، بهتر از همیشه</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;900&family=Lalezar&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/vmp.css">
+<link rel="stylesheet" href="assets/css/vmp-admin.css">
+<link rel="stylesheet" href="assets/css/vmp-member.css">
+</head>
+<body>
+<!-- ===== تم جدید: بنفش #2A196E (به‌جای سبز ACE) ===== -->
+<canvas id="topo" aria-hidden="true"></canvas>
+<div class="bg-city" aria-hidden="true"></div>
+<div class="bg-dots" aria-hidden="true"></div>
+<div class="bg-fade" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="top-right">
+    <div class="logo">
+      <span class="logo-mark">▲</span>
+      <span class="logo-text">HIMALAYA<br><small>VMP</small></span>
+    </div>
+  </div>
+  <nav class="pill-nav">
+    <a href="#home" class="active">خانه</a>
+    <a href="#shop">فروشگاه</a>
+    <a href="#support">پشتیبانی</a>
+    <a href="#team">تیم</a>
+    <a href="#blog">وبلاگ</a>
+    <a href="#streamers">استریمرها</a>
+  </nav>
+  <div class="top-left">
+    <button class="icon-btn" aria-label="اعلان">🔔</button>
+    <button class="icon-btn" id="profileBtn" aria-label="حساب">👤</button>
+    <span class="user-chip" id="userChip" hidden></span>
+  </div>
+</header>
+
+<main id="home">
+  <!-- HERO — مثل عکس اول -->
+  <section class="hero">
+    <h1>رول‌پلی، بهتر از همیشه</h1>
+    <p class="hero-sub">اینجا هر تصمیم پیامد دارد؛ با تمرکز روی نظم، واقع‌گرایی و کیفیت، تجربه‌ای ساخته شده که<br>از اصول رول‌پلی فاصله نمی‌گیرد</p>
+    <div class="hero-btns">
+      <a href="#shop" class="btn primary">خرید اشتراک</a>
+      <button class="btn dark" data-goto-register>ورود به حساب کاربری 👤</button>
+    </div>
+    <div class="hero-stats">
+      <span class="stat"><i></i> وایت‌لیست ۹۸/۱۱۰</span>
+      <span class="stat"><i></i> Dev ۲/۳۲۲</span>
+    </div>
+  </section>
+
+  <!-- آموزش ورود — مثل عکس دوم -->
+  <section class="tutorial" id="tutorial">
+    <h2><span class="accent">HIMALAYA</span> آموزش ورود به</h2>
+    <div class="tut-grid">
+      <div class="tut-card">
+        <span class="badge">قدم اول</span>
+        <div class="tut-body">
+          <h3>نصب موارد موردنیاز</h3>
+          <p>از سایت VMP کلاینت VMP و GTA را دانلود و نصب کنید.</p>
+        </div>
+        <div class="tut-side v">V</div>
+        <a class="mini-btn" href="https://vmp.ir" target="_blank" rel="noopener">دانلود ↗</a>
+      </div>
+      <div class="tut-card">
+        <span class="badge">قدم دوم</span>
+        <div class="tut-body">
+          <h3>ثبت نام</h3>
+          <p>در سایت HIMALAYA ثبت نام کنید</p>
+        </div>
+        <div class="tut-side key">◣</div>
+        <button class="mini-btn" data-goto-register>ورود / ثبت‌نام</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- بخش‌های ساده برای لینک‌های منو -->
+  <section class="simple" id="shop">
+    <h2>فروشگاه</h2>
+    <p>اشتراک‌ها و آیتم‌های ویژه سرور به‌زودی اینجا قرار می‌گیرد.</p>
+    <div class="shop-row" id="shopList">
+      <div class="shop-card"><b>اشتراک برنزی</b><span>۳۰ روزه</span><button class="btn primary small">خرید</button></div>
+      <div class="shop-card hot"><b>اشتراک طلایی</b><span>۳۰ روزه + کیت ویژه</span><button class="btn primary small">خرید</button></div>
+      <div class="shop-card"><b>اشتراک نقره‌ای</b><span>۳۰ روزه</span><button class="btn primary small">خرید</button></div>
+    </div>
+  </section>
+
+  <section class="simple" id="support">
+    <h2>پشتیبانی و تیکت</h2>
+    <p id="supportHint">برای ثبت تیکت اول وارد حساب کاربری شو 👤</p>
+    <form class="va-form ticket-form" id="ticketForm" hidden>
+      <input id="tkSubject" placeholder="موضوع تیکت" maxlength="80" required>
+      <textarea id="tkBody" placeholder="متن پیام (حداکثر ۱۰۰۰ حرف)" maxlength="1000" required></textarea>
+      <button class="btn primary block" type="submit">ارسال تیکت 🎫</button>
+    </form>
+    <div id="myTickets"></div>
+  </section>
+
+  <section class="simple" id="team">
+    <h2>تیم ما</h2>
+    <p>تیم مدیریت و توسعه‌دهندگان سرور هیمالیا.</p>
+  </section>
+
+  <section class="simple" id="blog">
+    <h2>وبلاگ</h2>
+    <p>اخبار، آپدیت‌ها و قوانین سرور اینجا منتشر می‌شود.</p>
+    <div class="shop-row" id="blogList"></div>
+  </section>
+
+  <section class="simple" id="streamers">
+    <h2>استریمرها</h2>
+    <p>استریمرهای رسمی سرور به‌زودی معرفی می‌شوند.</p>
+  </section>
+
+  <footer class="vmp-foot">
+    <a href="../index.html">→ بازگشت به سایت اصلی هیمالیا</a>
+    <span>© ۲۰۲۶ Himalaya VMP</span>
+  </footer>
+</main>
+
+<!-- ===== حساب کاربری: ثبت‌نام / ورود / ورود مدیریت ===== -->
+<div class="auth-wrap" id="authWrap" hidden>
+  <div class="auth-bg" aria-hidden="true"></div>
+  <div class="auth-card">
+    <button class="auth-close" id="authClose" aria-label="بستن">✕</button>
+
+    <div class="auth-tabs">
+      <button class="active" data-auth-tab="register">ثبت‌نام</button>
+      <button data-auth-tab="login">ورود</button>
+      <button data-auth-tab="admin">🛡 مدیریت</button>
+    </div>
+
+    <!-- ثبت‌نام -->
+    <div id="registerView">
+      <h2>ثبت نام</h2>
+      <p class="auth-sub">حساب کاربری خود را بسازید</p>
+      <form id="registerForm">
+        <label>نام کاربری<input id="rName" dir="ltr" placeholder="arian-rra" required minlength="3"></label>
+        <label>شماره موبایل<input id="rPhone" inputmode="numeric" placeholder="۰۹۰۰۰۰۰۰۴۴۴" required></label>
+        <label>ایمیل<input id="rMail" type="email" dir="ltr" placeholder="name@email.com" required></label>
+        <div class="pass-row">
+          <label>رمز<input id="rPass" type="password" dir="ltr" placeholder="••••••••" required minlength="6"></label>
+          <label>تکرار رمز<input id="rPass2" type="password" dir="ltr" placeholder="••••••••" required minlength="6"></label>
+        </div>
+        <div class="err" id="rErr"></div>
+        <button class="btn primary block" type="submit">ساخت حساب کاربری</button>
+        <p class="have">حساب کاربری دارید؟ <a href="#" data-switch="login">ورود</a></p>
+      </form>
+    </div>
+
+    <!-- ورود کاربر -->
+    <div id="loginView" hidden>
+      <h2>ورود</h2>
+      <p class="auth-sub">وارد حساب کاربری خود شوید</p>
+      <form id="loginForm">
+        <label>نام کاربری یا ایمیل<input id="lId" dir="ltr" placeholder="arian-rra" required></label>
+        <label>رمز<input id="lPass" type="password" dir="ltr" placeholder="••••••••" required></label>
+        <div class="err" id="lErr"></div>
+        <button class="btn primary block" type="submit">ورود به حساب</button>
+        <p class="have">حساب ندارید؟ <a href="#" data-switch="register">ثبت‌نام</a></p>
+      </form>
+    </div>
+
+    <!-- ورود مدیریت -->
+    <div id="adminView" hidden>
+      <h2>🛡 ورود مدیریت</h2>
+      <p class="auth-sub">فقط مدیران سایت اصلی هیمالیا</p>
+      <form id="adminForm" autocomplete="off">
+        <label>ایمیل مدیریت<input id="aMail" type="email" dir="ltr" placeholder="ایمیل" autocomplete="off" value="" required></label>
+        <label>رمز مدیریت<input id="aPass" type="password" dir="ltr" placeholder="••••••••" autocomplete="new-password" value="" required></label>
+        <div class="err" id="aErr"></div>
+        <button class="btn primary block admin-btn" type="submit">ورود مدیر</button>
+        <p class="have">کاربر عادی هستید؟ <a href="#" data-switch="login">ورود کاربران</a></p>
+      </form>
+    </div>
+
+    <!-- وضعیت ورود موفق -->
+    <div id="accountView" hidden>
+      <h2 id="accTitle">خوش آمدی 👋</h2>
+      <p class="auth-sub" id="accSub"></p>
+      <div class="acc-box" id="accBox"></div>
+      <button class="btn primary block" id="accMember" hidden>پنل کاربری 👤</button>
+      <button class="btn primary block" id="accPanel" hidden>ورود به پنل مدیریت 🛡</button>
+      <button class="btn dark block" id="logoutBtn">خروج از حساب</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== پنل مدیریت داخل همین سایت VMP ===== -->
+<div class="vmp-admin" id="adminPanel" hidden>
+  <aside class="va-side">
+    <h3>🛡 پنل مدیریت VMP</h3>
+    <button class="va-tab active" data-va="tickets">🎫 تیکت‌ها</button>
+    <button class="va-tab" data-va="users">👥 کاربران</button>
+    <button class="va-tab" data-va="items">📦 آیتم‌ها</button>
+    <button class="va-tab" data-va="news">📰 وبلاگ</button>
+    <button class="va-tab" data-va="orders">🛒 سفارش‌ها</button>
+    <span class="sp"></span>
+    <button class="va-tab" id="vaClose">✕ بستن</button>
+  </aside>
+  <div class="va-main">
+    <div class="va-head"><h2>مدیریت سرور</h2><span class="sub" id="vaMode"></span></div>
+    <div class="va-stats" id="vaStats"></div>
+    <div id="va-tickets"></div>
+    <div id="va-users" hidden></div>
+    <div id="va-items" hidden></div>
+    <div id="va-news" hidden></div>
+    <div id="va-orders" hidden></div>
+  </div>
+</div>
+
+<!-- ===== پنل کاربری (ممبر) شبیه نمونه ACE ===== -->
+<div class="vmp-member" id="memberPanel" hidden>
+  <aside class="mm-side">
+    <div class="mm-profile">
+      <div class="mm-avatar" id="mmAvatar">👤</div>
+      <b id="mmName"></b>
+      <span id="mmSub"></span>
+    </div>
+    <button class="va-tab active" data-mm="dash">🏠 داشبورد</button>
+    <button class="va-tab" data-mm="profile">👤 پروفایل</button>
+    <button class="va-tab" data-mm="orders">🛒 سفارش‌های من</button>
+    <button class="va-tab" data-mm="settings">⚙ تنظیمات</button>
+    <span class="sp"></span>
+    <button class="va-tab" data-mm-goto="#shop">🛍 فروشگاه</button>
+    <button class="va-tab" data-mm-goto="#support">🎫 پشتیبانی</button>
+    <button class="va-tab" id="mmClose">✕ بستن</button>
+    <button class="va-tab danger" id="mmLogout">🚪 خروج از حساب</button>
+  </aside>
+  <div class="va-main">
+    <div class="va-head"><h2>پنل کاربری</h2><span class="sub">Himalaya VMP</span></div>
+    <div id="mm-dash"></div>
+    <div id="mm-profile" hidden></div>
+    <div id="mm-orders" hidden></div>
+    <div id="mm-settings" hidden></div>
+  </div>
+</div>
+
+<div class="toast" id="vmpToast"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../assets/js/config.js"></script>
+<script src="assets/js/vmp-db.js"></script>
+<script src="assets/js/vmp-admin.js"></script>
+<script src="assets/js/vmp-member.js"></script>
+<script src="assets/js/vmp-support.js"></script>
+<script src="assets/js/vmp-topo.js"></script>
+<script src="assets/js/vmp.js"></script>
+</body>
+</html>

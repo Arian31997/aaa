@@ -1,0 +1,44 @@
+/* ===== پنل مدیریت داخل سایت VMP — تم بنفش #2A196E ===== */
+.vmp-admin{position:fixed;inset:0;z-index:60;display:grid;grid-template-columns:220px 1fr;background:rgba(10,6,28,.96);backdrop-filter:blur(14px)}
+.vmp-admin[hidden]{display:none!important}
+.va-side{background:linear-gradient(180deg,#1c1550,#100b2e);border-inline-end:1px solid var(--line2);padding:20px 14px;display:flex;flex-direction:column;gap:8px}
+.va-side h3{font-family:"Lalezar",cursive;font-weight:400;font-size:1.2rem;text-align:center;margin-bottom:6px;color:var(--acc)}
+.va-tab{border:1px solid transparent;background:transparent;color:var(--mut);font:inherit;font-size:.85rem;text-align:right;border-radius:12px;padding:11px 14px;cursor:pointer;display:flex;gap:8px;align-items:center}
+.va-tab.active{background:linear-gradient(135deg,#2A196E,var(--acc));color:#fff;box-shadow:var(--glow)}
+.va-tab:hover{border-color:var(--line)}
+.va-side .sp{flex:1}
+.va-main{overflow-y:auto;padding:22px;max-width:900px}
+.va-head{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.va-head h2{font-family:"Lalezar",cursive;font-weight:400;font-size:1.5rem}
+.va-head .sub{color:var(--mut);font-size:.75rem}
+.va-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:18px}
+.va-stat{background:var(--card);border:1px solid var(--line2);border-radius:14px;padding:12px;text-align:center}
+.va-stat b{display:block;font-size:1.4rem;color:var(--acc)}
+.va-stat span{font-size:.72rem;color:var(--mut)}
+.va-card{background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:16px;margin-bottom:12px}
+.va-card h4{font-size:.95rem;margin-bottom:4px}
+.va-card p{font-size:.8rem;color:var(--mut);line-height:2;white-space:pre-wrap}
+.va-meta{font-size:.7rem;color:var(--mut);margin:6px 0}
+.va-ans{background:rgba(42,25,110,.4);border:1px solid var(--line);border-radius:10px;padding:10px;font-size:.78rem;margin-top:8px}
+.va-reply{margin-top:10px;display:grid;gap:8px}
+.va-reply[hidden]{display:none!important}
+.va-reply textarea{background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:12px;padding:10px 14px;color:#fff;font:inherit;font-size:.8rem;width:100%;min-height:70px;resize:vertical}
+.va-reply textarea:focus{outline:none;border-color:var(--acc);box-shadow:var(--glow)}
+.va-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.va-btn{border:1px solid var(--line2);background:rgba(255,255,255,.05);color:#e9e4ff;border-radius:999px;padding:7px 16px;font:inherit;font-size:.75rem;cursor:pointer}
+.va-btn:hover{border-color:var(--acc)}
+.va-btn.ok{background:linear-gradient(135deg,#2A196E,var(--acc));color:#fff;border:0}
+.va-btn.danger{border-color:rgba(255,90,110,.4);color:#ff9aa8}
+.va-form{display:grid;gap:10px;margin-bottom:16px}
+.ticket-form{max-width:560px;margin:14px auto 18px}
+.va-form input,.va-form textarea{background:rgba(255,255,255,.05);border:1px solid var(--line2);border-radius:12px;padding:10px 14px;color:#fff;font:inherit;font-size:.82rem;width:100%}
+.va-form textarea{min-height:80px;resize:vertical}
+.badge{display:inline-block;font-size:.65rem;border-radius:999px;padding:2px 12px;border:1px solid var(--line);color:var(--acc);background:var(--acc-soft)}
+.badge.b-open{background:rgba(255,180,80,.14);color:#ffcf8a;border-color:rgba(255,180,80,.35)}
+.badge.b-answered{background:rgba(120,255,160,.12);color:#9dffb9;border-color:rgba(120,255,160,.3)}
+.badge.b-closed{opacity:.6}
+.badge.b-pending{background:rgba(255,180,80,.14);color:#ffcf8a;border-color:rgba(255,180,80,.35)}
+.badge.b-approved{background:rgba(120,255,160,.12);color:#9dffb9;border-color:rgba(120,255,160,.3)}
+.badge.b-rejected{background:rgba(255,90,110,.14);color:#ff9aa8;border-color:rgba(255,90,110,.35)}
+.empty{color:var(--mut);text-align:center;padding:26px;font-size:.82rem}
+@media(max-width:760px){.vmp-admin{grid-template-columns:1fr}.va-side{flex-direction:row;flex-wrap:wrap;align-items:center}.va-side h3{width:100%}}
